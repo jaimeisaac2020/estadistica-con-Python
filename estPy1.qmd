@@ -1,0 +1,79 @@
+---
+title: "Untitled"
+format: pdf
+editor: visual
+jupyter: python3
+---
+
+```{python}
+#!pip install pandas
+```
+
+```{python}
+# import libraries for loading dataset
+import pandas as pd
+import numpy as np
+# import libraries for plotting
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib import rcParams
+#%matplotlib inline
+plt.style.use('dark_background')
+# ignore warnings
+import warnings
+warnings.filterwarnings('ignore')
+```
+
+```{python}
+# loading the data set
+df = pd.read_csv("adult.csv", encoding='latin-1')
+print(df.head())
+```
+```{python}
+df.shape
+```
+
+```{python}
+df.columns
+```
+```{python}
+df.info()
+```
+```{python}
+from matplotlib import pyplot as plt
+df['age'].plot(kind='hist', bins=20, title='age')
+plt.gca().spines[['top', 'right',]].set_visible(False)
+plt.show()
+```
+
+```{python}
+print(df.tail())
+```
+
+```{python}
+# As we observe education and education_num both are same , so we can drop one of the column
+df.drop(['education.num'], axis = 1, inplace = True)
+df.drop(['race'], axis = 1, inplace = True)
+```
+
+
+```{python}
+df.info()
+```
+```{python}
+print(df.describe().T)
+```
+```{python}
+df.nunique()
+```
+
+```{python}
+df['age'].value_counts()
+```
+```{python}
+df['workclass'].value_counts()
+colors = ["black","red", "green", "blue", "orange", "yellow", "purple"]
+df.workclass.value_counts().plot.bar(color=colors,legend=True)
+plt.show()
+```
+
