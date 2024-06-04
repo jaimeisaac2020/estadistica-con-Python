@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Un poco de estadistica con Python en Rstudio"
 format: pdf
 editor: visual
 jupyter: python3
@@ -74,6 +74,63 @@ df['age'].value_counts()
 df['workclass'].value_counts()
 colors = ["black","red", "green", "blue", "orange", "yellow", "purple"]
 df.workclass.value_counts().plot.bar(color=colors,legend=True)
+plt.show()
+```
+
+```{python}
+df['education'].value_counts()
+```
+```{python}
+df['education'].value_counts()
+colors = ["white","red", "green", "blue", "orange", "yellow", "purple"]
+df.education.value_counts().plot.bar(color=colors,legend=True)
+plt.show()
+```
+
+```{python}
+df['workclass'].value_counts()
+colors = ["white","red", "green", "blue", "orange", "yellow", "purple"]
+df.workclass.value_counts().plot.bar(color=colors,legend=True)
+plt.show()
+```
+```{python}
+df['hours.per.week'].value_counts()
+```
+```{python}
+df['income'].value_counts()
+```
+```{python}
+df['income'].value_counts()
+colors = ["white","red", "green", "blue", "orange", "yellow", "purple"]
+df.income.value_counts().plot.bar(color=colors,legend=True)
+plt.show()
+```
+
+```{python}
+df.isna().sum()
+```
+```{python}
+df.info()
+```
+
+```{python}
+#catogrical column
+catogrical_column = [column for column in df.columns if df[column].dtypes=='object']
+print(catogrical_column)
+```
+
+```{python}
+#numerical_column
+numerical_column = [column for column in df.columns if df[column].dtypes !='object']
+print(numerical_column)
+```
+```{python}
+print(df.head())
+```
+```{python}
+#univariate analysis
+plt.figure(figsize=(10,10))
+sns.histplot(data=df['education'],kde=True,legend=True)
 plt.show()
 ```
 
