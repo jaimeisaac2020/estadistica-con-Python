@@ -1,0 +1,130 @@
+---
+title: "SOlucion de ecuaciones Polinomicas en R y Python"
+format: html
+editor: visual
+---
+
+Se muestra cómo resolver ecuaciones polinómicas en R y Python utilizando funciones específicas para encontrar las raíces de polinomios.
+
+### En R
+
+En R, podemos usar la función `polyroot` para encontrar las raíces de un polinomio dado sus coeficientes.
+
+#### Ejemplo en R
+
+Consideremos el polinomio (x\^4 - 3x\^3 + 2x\^2 - x + 1 = 0):
+
+``` r
+# Coeficientes del polinomio
+coeficientes <- c(1, -3, 2, -1, 1)
+
+# Encontrar las raíces
+soluciones <- polyroot(coeficientes)
+
+# Mostrar las soluciones
+print(soluciones)
+```
+
+### En Python
+
+En Python, podemos usar la biblioteca `numpy`, específicamente la función `numpy.roots` para encontrar las raíces de un polinomio dado sus coeficientes.
+
+#### Ejemplo en Python
+
+Consideremos el mismo polinomio (x\^4 - 3x\^3 + 2x\^2 - x + 1 = 0):
+
+``` python
+import numpy as np
+
+# Coeficientes del polinomio
+coeficientes = [1, -3, 2, -1, 1]
+
+# Encontrar las raíces
+soluciones = np.roots(coeficientes)
+
+# Mostrar las soluciones
+print(soluciones)
+```
+
+### Código completo
+
+#### Código completo en R
+
+``` r
+# Coeficientes del polinomio
+coeficientes <- c(1, -3, 2, -1, 1)
+
+# Encontrar las raíces
+soluciones <- polyroot(coeficientes)
+
+# Mostrar las soluciones
+print(soluciones)
+```
+
+#### Código completo en Python
+
+``` python
+import numpy as np
+
+# Coeficientes del polinomio
+coeficientes = [1, -3, 2, -1, 1]
+
+# Encontrar las raíces
+soluciones = np.roots(coeficientes)
+
+# Mostrar las soluciones
+print(soluciones)
+```
+
+Estos códigos te permitirán encontrar todas las raíces (incluyendo las complejas) de polinomios en R y Python. Solo necesitas ajustar los coeficientes del polinomio según el polinomio que desees resolver.
+
+.
+
+```{r}
+
+# Coeficientes del polinomio
+coeficientes <- c(1, -3, 2, -1, 1)
+
+# Encontrar las raíces
+soluciones <- polyroot(coeficientes)
+
+# Mostrar las soluciones
+print(soluciones)
+
+```
+
+```{python}
+import numpy as np
+
+# Coeficientes del polinomio
+coeficientes = [1, -3, 2, -1, 1]
+
+# Encontrar las raíces
+soluciones = np.roots(coeficientes)
+
+# Mostrar las soluciones
+print(soluciones)
+
+```
+
+```{python}
+from scipy.optimize import bisect
+import numpy as np
+
+# Definir la función
+def f1(x):
+    return np.sin(x) - np.exp(-x)
+
+# Definir el intervalo
+a1 = 0
+b1 = 2
+
+# Encontrar la raíz usando el método de bisección
+raiz1 = bisect(f1, a1, b1)
+
+# Mostrar la raíz
+print("La raíz de la función sin(x) - e^(-x) en el intervalo [0, 2] es:", raiz1)
+
+
+```
+

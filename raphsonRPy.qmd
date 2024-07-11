@@ -1,0 +1,158 @@
+---
+title: "METODO DE NEWTON RAPHSON USANDO R Y PYTHON"
+format: html
+editor: visual
+---
+
+## 
+
+```{r}
+newton_raphson <- function(f, df, x0, tol = 1e-7, max_iter = 1000) {
+  x <- x0
+  iter <- 0
+  
+  while (iter < max_iter) {
+    x_new <- x - f(x) / df(x)
+    
+    if (abs(x_new - x) < tol) {
+      return(list(raiz = x_new, iteraciones = iter))
+    }
+    
+    x <- x_new
+    iter <- iter + 1
+  }
+  
+  return(list(raiz = NA, iteraciones = iter, mensaje = "No convergió"))
+}
+
+# Ejemplo de uso
+f <- function(x) x^3 - x - 2
+df <- function(x) 3*x^2 - 1
+
+resultado <- newton_raphson(f, df, x0 = 1)
+print(resultado)
+
+```
+
+```{python}
+def newton_raphson(f, df, x0, tol=1e-7, max_iter=1000):
+    x = x0
+    iter = 0
+    
+    while iter < max_iter:
+        x_new = x - f(x) / df(x)
+        
+        if abs(x_new - x) < tol:
+            return {'raiz': x_new, 'iteraciones': iter}
+        
+        x = x_new
+        iter += 1
+    
+    return {'raiz': None, 'iteraciones': iter, 'mensaje': 'No convergió'}
+
+# Ejemplo de uso
+f = lambda x: x**3 - x - 2
+df = lambda x: 3*x**2 - 1
+
+resultado = newton_raphson(f, df, x0=1)
+print(resultado)
+
+```
+
+```{r}
+newton_raphson <- function(f, df, x0, tol = 1e-7, max_iter = 1000) {
+  x <- x0
+  iter <- 0
+  
+  while (iter < max_iter) {
+    x_new <- x - f(x) / df(x)
+    
+    if (abs(x_new - x) < tol) {
+      return(list(raiz = x_new, iteraciones = iter))
+    }
+    
+    x <- x_new
+    iter <- iter + 1
+  }
+  
+  return(list(raiz = NA, iteraciones = iter, mensaje = "No convergió"))
+}
+
+# Ejemplo 1: Función trigonométrica (f(x) = sin(x) - 0.5)
+f1 <- function(x) sin(x) - 0.5
+df1 <- function(x) cos(x)
+
+resultado1 <- newton_raphson(f1, df1, x0 = 1)
+print(resultado1)
+
+# Ejemplo 2: Función exponencial (f(x) = e^x - 2)
+f2 <- function(x) exp(x) - 2
+df2 <- function(x) exp(x)
+
+resultado2 <- newton_raphson(f2, df2, x0 = 1)
+print(resultado2)
+
+# Ejemplo 3: Función logarítmica (f(x) = log(x) - 1)
+f3 <- function(x) log(x) - 1
+df3 <- function(x) 1 / x
+
+resultado3 <- newton_raphson(f3, df3, x0 = 2)
+print(resultado3)
+
+# Ejemplo 4: Combinación de funciones (f(x) = e^x - x^2)
+f4 <- function(x) exp(x) - x^2
+df4 <- function(x) exp(x) - 2*x
+
+resultado4 <- newton_raphson(f4, df4, x0 = 1)
+print(resultado4)
+
+
+```
+
+```{python}
+def newton_raphson(f, df, x0, tol=1e-7, max_iter=1000):
+    x = x0
+    iter = 0
+    
+    while iter < max_iter:
+        x_new = x - f(x) / df(x)
+        
+        if abs(x_new - x) < tol:
+            return {'raiz': x_new, 'iteraciones': iter}
+        
+        x = x_new
+        iter += 1
+    
+    return {'raiz': None, 'iteraciones': iter, 'mensaje': 'No convergió'}
+
+import math
+
+# Ejemplo 1: Función trigonométrica (f(x) = sin(x) - 0.5)
+f1 = lambda x: math.sin(x) - 0.5
+df1 = lambda x: math.cos(x)
+
+resultado1 = newton_raphson(f1, df1, x0=1)
+print(resultado1)
+
+# Ejemplo 2: Función exponencial (f(x) = e^x - 2)
+f2 = lambda x: math.exp(x) - 2
+df2 = lambda x: math.exp(x)
+
+resultado2 = newton_raphson(f2, df2, x0=1)
+print(resultado2)
+
+# Ejemplo 3: Función logarítmica (f(x) = log(x) - 1)
+f3 = lambda x: math.log(x) - 1
+df3 = lambda x: 1 / x
+
+resultado3 = newton_raphson(f3, df3, x0=2)
+print(resultado3)
+
+# Ejemplo 4: Combinación de funciones (f(x) = e^x - x^2)
+f4 = lambda x: math.exp(x) - x**2
+df4 = lambda x: math.exp(x) - 2*x
+
+resultado4 = newton_raphson(f4, df4, x0=1)
+print(resultado4)
+
+```
